@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="cell_row_count" format="integer|reference"/>
+    <attr name="cell_column_count" format="integer|reference"/>
+
+    <declare-styleable name="CellLayout">
+        <!-- 定义总行数 -->
+        <attr name="cell_row_count"/>
+        <!-- 定义总列数 -->
+        <attr name="cell_column_count"/>
+
+        <!-- 显示的列数 -->
+        <attr name="cell_row_visible" format="integer|reference"/>
+        <!-- 显示的行数-->
+        <attr name="cell_column_visible" format="integer|reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="CellLayout_LayoutParams">
+        <!-- 定义起始行,从0开始 -->
+        <attr name="cell_row" format="integer|reference"/>
+        <!-- 定义起始列，从0开始 -->
+        <attr name="cell_column" format="integer|reference"/>
+
+        <!-- 定义所占cell的行数 -->
+        <attr name="cell_row_count"/>
+        <!-- 定义所占cell的列数 -->
+        <attr name="cell_column_count"/>
+
+    </declare-styleable>
+
+</resources>
