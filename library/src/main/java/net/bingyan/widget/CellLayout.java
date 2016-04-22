@@ -6,12 +6,16 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 public class CellLayout extends ViewGroup {
     private int rowCount;       // 总共的行数
     private int columnCount;   // 总共的列数
     private int rowVisible;    // 一次最多显示的行数
     private int columnVisible; // 一次最多显示的列数
+
+    /** measure遇到RelativeLayout时有bug  {@link #onMeasure(int, int)} */
+    private int tmpMeasuredCount = 0;
 
     public CellLayout(Context context) {
         super(context);
@@ -52,8 +56,23 @@ public class CellLayout extends ViewGroup {
         final int rowCount = Math.max(rowVisible, this.rowCount);
         final int columnCount = Math.max(columnVisible, this.columnCount);
 
-        final float cellWidth = (widthMeasured - getPaddingLeft() - getPaddingRight()) / columnVisible;
         final float cellHeight = (heightMeasured - getPaddingTop() - getPaddingBottom()) / rowVisible;
+        /**
+         * RelativeLayout的measure过程很特别
+         * 首先 measure horizontal，将width确定
+         * 再 measure child 一遍，完全确定
+         * 后果就是如果按照下面的被注释的代码运行的话，会导致：
+         * 首先 measure了一遍，得到width,此时可能超过了屏幕宽，再measure一遍，再此基础上再扩展一遍宽
+         *
+         * final float cellWidth = (widthMeasured - getPaddingLeft() - getPaddingRight()) / columnVisible;
+         */
+        ++tmpMeasuredCount;
+        final float cellWidth;
+        if (getParent() instanceof RelativeLayout && tmpMeasuredCount % 2 == 0) {
+            cellWidth = (widthMeasured - getPaddingLeft() - getPaddingRight()) / columnCount;
+        } else {
+            cellWidth = (widthMeasured - getPaddingLeft() - getPaddingRight()) / columnVisible;
+        }
 
         for (int i = 0; i < getChildCount(); ++i) {
             final View child = getChildAt(i);

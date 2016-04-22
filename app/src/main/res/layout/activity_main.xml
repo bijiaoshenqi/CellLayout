@@ -14,17 +14,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ff00ff00"
-        app:cell_column_count="4"
-        app:cell_column_visible="2"
-        app:cell_row_count="5"
-        app:cell_row_visible="3">
+        app:cell_column_count="6"
+        app:cell_column_visible="4"
+        app:cell_row_count="6"
+        app:cell_row_visible="4">
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#440000ff"
+            app:cell_column="1"
             app:cell_column_count="1"
+            app:cell_row="1"
             app:cell_row_count="1"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#ffff00ff"
+            app:cell_column="3"
+            app:cell_column_count="1"
+            app:cell_row="3"
+            app:cell_row_count="1"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#ff0000ff"
+            app:cell_column="1"
+            app:cell_column_count="2"
+            app:cell_row="3"
+            app:cell_row_count="1"/>
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#ff00ffff"
+            app:cell_column="2"
+            app:cell_column_count="3"
+            app:cell_row="0"
+            app:cell_row_count="2"/>
 
     </net.bingyan.widget.CellLayout>
 
