@@ -120,6 +120,13 @@ cell\_row和cell\_count是0索引起始的，和数组的下标起始保持一�
         app:cell_row="4"
         app:cell_row_count="1"
  
+## Version
+
+### 1.0.0 
+1. 可以在xml中添加cell  
+2. 可以指定cell所在位置和大小  
+3. 支持cell的margin  
+
 
 ## Licese
 
