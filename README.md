@@ -1,4 +1,4 @@
-[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/bijiaoshenqi/CellLayout)
+[![](https://jitpack.io/v/bijiaoshenqi/CellLayout.svg)](https://jitpack.io/#bijiaoshenqi/CellLayout)
 
 # CellLayout
 课程表般网格layout  
@@ -6,11 +6,49 @@
 效果图如下：  
 ![效果图](doc/screenshot/QQ截图20160421203454.png)
 
-
 说明图如下：  
-![说明图](doc/screenshot/说明.png)
+![说明图](doc/screenshot/说明.png)  
 
-## Feasures
+## How to use
+To get a Git project into your build:
+
+### gradle  
+**Step 1**. Add the JitPack repository to your build file
+
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+
+**Step 2**. Add the dependency
+
+	dependencies {
+	        compile 'com.github.bijiaoshenqi:CellLayout:1.0.0'
+	}
+
+### maven
+**Step 1**. Add the JitPack repository to your build file
+
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+**Step 2**. Add the dependency
+
+	<dependency>
+	    <groupId>com.github.bijiaoshenqi</groupId>
+	    <artifactId>CellLayout</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
+
+**That's it! You are good to go!**
+
+## Features
 
 * parent layout不受CellLayout控制，所以parent的padding由父类决定
 * CellLayout支持padding
